@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Hero } from '../hero';
+import { Hero, HeroResp } from '../hero';
 import { HeroService } from '../hero.service';
 import { MessageService } from '../message.service';
 
@@ -27,7 +27,15 @@ export class HeroesComponent implements OnInit {
 
   getHeroes(): void {
     this.heroService.getHeroes()
-      .subscribe(heroes => this.heroes = heroes);
+      .subscribe({
+        next: resp => {
+          console.log(resp.results);
+          console.log(resp);
+          this.heroes = resp.results;
+        },
+        error: err => console.log(`Something wrong occurred: ${err}`),
+        complete: () => console.log('Operation completed')
+      });
   }
 
 }

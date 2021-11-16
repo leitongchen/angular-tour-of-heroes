@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders  } from '@angular/common/http';
-import { Hero } from './hero';
+import { Hero, HeroResp } from './hero';
 import { HEROES } from './mock-heroes';
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
@@ -18,9 +18,8 @@ export class HeroService {
   //   this.messageService.add('Message from HeroService');
   //   return heroes;
   // }
- 
 
-  getHeroes(): Observable<Hero[]> {
-    return this.http.get<Hero[]>(`http://localhost:5000/api/heroes`);
+  getHeroes(): Observable<HeroResp> {
+    return this.http.get<HeroResp>(`http://localhost:5000/api/heroes`);
   }
 }
