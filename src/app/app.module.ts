@@ -10,6 +10,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MessagesComponent } from './messages/messages.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
