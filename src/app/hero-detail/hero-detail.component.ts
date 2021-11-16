@@ -13,7 +13,9 @@ import { HeroService } from '../hero.service';
 })
 export class HeroDetailComponent implements OnInit {
 
-  @Input() hero?: Hero; 
+  // @Input() hero?: Hero; 
+  hero?: Hero; 
+
 
   constructor(
     private route: ActivatedRoute,
@@ -23,13 +25,25 @@ export class HeroDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.getHero(); 
+    
   }
 
+  /* fetch hero: first method */
   getHero(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.heroService.getHero(id)
-      .subscribe(hero => this.hero = hero);
+    this.route.paramMap
+    .subscribe(params => {
+      let x = Number(params.get('id'));
+      this.heroService.getHero(x)
+        .subscribe(hero => this.hero = hero);
+    });
   }
+
+  /* fetch hero: second method */
+  // getHero(): void {
+  //   const id = Number(this.route.snapshot.paramMap.get('id'));
+  //   this.heroService.getHero(id)
+  //     .subscribe(hero => this.hero = hero);
+  // }
 
   goBack(): void {
     this.location.back();
