@@ -12,6 +12,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
+import { HeroSearchComponent } from './hero-search/hero-search.component';
+import { PopupComponent } from './popup/popup.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +24,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
     HeroDetailComponent,
     MessagesComponent,
     DashboardComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    HeroSearchComponent,
+    PopupComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +34,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
     AppRoutingModule,
     FormsModule,
     CommonModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]
