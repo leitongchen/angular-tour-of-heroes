@@ -1,3 +1,7 @@
-<!-- <h4>Are you sure to delete "{{hero.name}}"?</h4> -->
-<button>Yes</button>
-<button>No</button>
+<div class="pop-container">
+    <h4>Are you sure to delete "{{hero.name}}"?</h4>
+    <div class="btns-container">
+        <button (click)="onConfirm($event)">Yes</button>
+        <button (click)="onCancel($event)">No</button>
+    </div>
+</div>

@@ -11,8 +11,12 @@ import { MessageService } from '../message.service';
 export class HeroesComponent implements OnInit {
 
   heroes: Hero[] = []; 
+  selectedHero: any; 
 
-  constructor(private heroService: HeroService, private messageService: MessageService) { }
+  constructor(
+    private heroService: HeroService, 
+    private messageService: MessageService
+  ) { }
 
   ngOnInit(): void {
     this.getHeroes();
@@ -22,8 +26,6 @@ export class HeroesComponent implements OnInit {
     this.heroService.getHeroes()
       .subscribe({
         next: resp => {
-          console.log(resp);
-          console.log(resp);
           this.heroes = resp;
         },
         error: err => console.log(`Something wrong occurred: ${err}`),
@@ -40,9 +42,22 @@ export class HeroesComponent implements OnInit {
       });
   }
 
-  delete(hero: Hero): void {
-    this.heroes = this.heroes.filter(h => h !== hero);
-    this.heroService.deleteHero(hero.id).subscribe();
+  delete(event: Event): void {
+    console.log(`Delete è stato triggerato correttamente: ${event}`)
+
+    if (event) {
+      this.heroes = this.heroes.filter(h => h !== this.selectedHero);
+      this.heroService.deleteHero(this.selectedHero.id).subscribe();
+      this.selectedHero = null; 
+    } else {
+      this.selectedHero = null; 
+      return; 
+    }
+  }
+
+  onDeleteBtn(event: Event, hero: Hero) {
+    event.stopPropagation();
+    this.selectedHero = hero;
   }
 
 }
