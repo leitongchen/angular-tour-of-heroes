@@ -1,0 +1,49 @@
+.pop-container {
+    background-color: #405061;
+    color: white;
+    border-radius: .7rem;
+    box-shadow: 3px 3px 10px rgba(18, 32, 77, 0.3);
+
+    width: 75%;
+    max-width: 300px;
+    padding: 2rem;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.btns-container {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    border: 0 solid;
+    color: white;
+
+    padding: 6px 12px;
+    margin-right: 1rem;
+
+    cursor: pointer;
+}
+button:hover {
+    transition: .2s;
+    transform: scale(1.1);
+}
+
+
+button.delete {
+    background-color: rgb(173, 50, 50);
+}
+
+button.secondary {
+    background-color: rgb(119, 138, 150);
+}
+
+@media (min-width: 600px) {
+    .pop-container {
+        width: auto;
+    }
+}

@@ -18,12 +18,10 @@ export class PopupComponent implements OnInit {
   }
 
   onConfirm(event: Event) {
-    console.log(`confermato voglio cancellare`)
     this.deleteRequest.emit(true);
   }
 
   onCancel(event: Event) {
-    console.log(`No, ho cambiato idea, non voglio cancellare.`);
     this.deleteRequest.emit(false);
   }
 }

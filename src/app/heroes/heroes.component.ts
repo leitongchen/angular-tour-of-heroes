@@ -43,8 +43,6 @@ export class HeroesComponent implements OnInit {
   }
 
   delete(event: Event): void {
-    console.log(`Delete è stato triggerato correttamente: ${event}`)
-
     if (event) {
       this.heroes = this.heroes.filter(h => h !== this.selectedHero);
       this.heroService.deleteHero(this.selectedHero.id).subscribe();
