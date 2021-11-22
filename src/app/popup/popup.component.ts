@@ -9,19 +9,19 @@ import { HeroesComponent } from '../heroes/heroes.component';
 })
 export class PopupComponent implements OnInit {
 
-  @Input() hero: any;
-  @Output() deleteRequest = new EventEmitter<any>();
+  @Input() hero: Hero;
+  @Output() deleteRequest = new EventEmitter<boolean>();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onConfirm(event: Event) {
-    this.deleteRequest.emit(true);
+  onConfirm() {
+    return this.deleteRequest.emit(true);
   }
 
-  onCancel(event: Event) {
-    this.deleteRequest.emit(false);
+  onCancel() {
+    return this.deleteRequest.emit(false);
   }
 }

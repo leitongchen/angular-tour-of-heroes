@@ -1,10 +1,14 @@
-<h1>{{title}}</h1>
-
-<nav>
-    <a routerLinkActive="active current" routerLink="/dashboard">Dashboard</a>
-    <a routerLinkActive="active current" routerLink="/heroes">Heroes</a>
-</nav>
-
-<router-outlet></router-outlet>
-<!-- <app-heroes></app-heroes> -->
-<app-messages></app-messages>
+<div class="wrapper">
+    <h1>{{title}}</h1>
+    
+    <nav>
+        <a routerLinkActive="active current" routerLink="/dashboard">Dashboard</a>
+        <a routerLinkActive="active current" routerLink="/heroes">Heroes</a>
+        <a routerLinkActive="active current" routerLink="/form">Form</a>
+    </nav>
+    
+    <div class="component-container">
+        <router-outlet></router-outlet>
+    </div>
+    <app-messages></app-messages>
+</div>

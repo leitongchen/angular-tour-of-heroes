@@ -1,7 +1,10 @@
-<div class="pop-container">
-    <h4>Are you sure to delete "{{hero.name}}"?</h4>
-    <div class="btns-container">
-        <button class="delete" (click)="onConfirm($event)">Yes</button>
-        <button class="secondary" (click)="onCancel($event)">No</button>
+<div class="modal-overlay">
+    <div class="pop-container">
+        <h4>Are you sure you want to delete "{{hero.name}}"?</h4>
+        <div class="btns-container">
+            <button class="delete" (click)="onConfirm()">Yes</button>
+            <button class="secondary" (click)="onCancel()">No</button>
+        </div>
     </div>
 </div>
+

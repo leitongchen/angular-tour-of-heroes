@@ -10,8 +10,8 @@ import { MessageService } from '../message.service';
 })
 export class HeroesComponent implements OnInit {
 
-  heroes: Hero[] = []; 
-  selectedHero: any; 
+  heroes: Hero[]; 
+  selectedHero: Hero; 
 
   constructor(
     private heroService: HeroService, 
@@ -42,15 +42,12 @@ export class HeroesComponent implements OnInit {
       });
   }
 
-  delete(event: Event): void {
-    if (event) {
+  delete(shouldDelete: boolean): void {
+    if (shouldDelete) {
       this.heroes = this.heroes.filter(h => h !== this.selectedHero);
       this.heroService.deleteHero(this.selectedHero.id).subscribe();
-      this.selectedHero = null; 
-    } else {
-      this.selectedHero = null; 
-      return; 
-    }
+    } 
+    this.selectedHero = null; 
   }
 
   onDeleteBtn(event: Event, hero: Hero) {
