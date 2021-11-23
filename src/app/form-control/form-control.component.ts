@@ -18,18 +18,23 @@ export class FormControlComponent implements OnInit {
       'surname': new FormControl(null, Validators.required),
       'email': new FormControl(null, [Validators.required, Validators.email, Validators.pattern('[a-z0-9.@]*')]),
       'subject': new FormControl(null, [Validators.required, Validators.minLength(10)]),
-      'message': new FormControl(null, [Validators.required, Validators.required]),
+      'message': new FormControl(null, [Validators.required, Validators.required, Validators.minLength(100)]),
     });
   }
 
   get email() {
-    // console.log(this.contactForm.get('email'));
+    console.log(this.contactForm.get('email').value);
+    // debugger
     return this.contactForm.get('email');
   }
 
-  onSubmit(event: Event) {
-    console.log(event);
+  onSubmit() {
+    // console.log(event);
     console.log(this.contactForm);
+  }
+
+  isInvalid() {
+    
   }
 
 }
